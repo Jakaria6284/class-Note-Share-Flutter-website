@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ict7b/Utils/projectUtils.dart';
 import 'package:ict7b/Widgets/Mobiledrawer.dart';
 import 'package:ict7b/Widgets/SiteLogo.dart';
 import 'package:ict7b/Widgets/header_Dekstop.dart';
 import 'package:ict7b/Widgets/header_Mobile.dart';
+import 'package:ict7b/Widgets/intro.dart';
+import 'package:ict7b/Widgets/projectCardWidget.dart';
 import 'package:ict7b/constant/naveTiles.dart';
 
 class HomePage extends StatefulWidget {
@@ -49,63 +52,99 @@ class _HomePageState extends State<HomePage> {
                       Scaffoldkey.currentState?.openEndDrawer();
                     },
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly, // Aligns children to the end of the row (right side)
-                  children: [
-                    Container(
-                      width: screenWidth * 0.4,
-                      child: Column(
+                Intro(),
 
-                        crossAxisAlignment: CrossAxisAlignment.start, // Align children to the start (left)
-                        children: [
-                          Text(
-                            "ICT 7 Section B",
-                            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(height: 8),
-                          Text(
-                            "Together, we find strength in unity and resilience in our bond. Let's stay committed and conquer challenges hand in hand",
-                            style: TextStyle(fontSize: 14,fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(height: 16),
-                          ElevatedButton(
-                            onPressed: () {
-                              // Add your button onPressed logic here
-                            },
-                            style: ElevatedButton.styleFrom(
-                             backgroundColor: Color(0xFFE7E028) // Change the button color here
-                            ),
 
-                            child: Text("Get In Touch",style: TextStyle(color: Colors.black),),
-                          ),
-                        ],
-                      ),
+                //Semester 6---------------------------------------------------------------
+                SizedBox(height: 40),
+                Center(
+                  child: Text(
+                    "Semester (6)",
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
                     ),
+                  ),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Wrap(
+                    spacing: 25,
+                    runSpacing: 25,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      for (int i = 0; i < list.length; i++)
+                        projectCardWidget(project: list[i]),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
 
-                    Padding(
-                      padding: const EdgeInsets.only(right: 26.0),
-                      child: Container(
-                        height: screenHeight * 0.9,
-                        width: screenWidth * 0.5,
-                        decoration: BoxDecoration(
-                          color: Colors.white, // White background color
-                          borderRadius: BorderRadius.circular(20), // Rounded corners
-                        ),
 
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
 
-                          child: Image.asset(
-                            "assets/iv.jpeg",
-                            fit: BoxFit.cover, // Adjust the image to fit the container
-                          ),
-                        ),
-                      ),
+                //Semester 7------------------------------------------------------------------------------
+                SizedBox(height: 20),
+                Center(
+                  child: Text(
+                    "Semester (7)",
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
                     ),
+                  ),
+                ),
+                SizedBox(height: 20),
 
-                  ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Wrap(
+                    spacing: 25,
+                    runSpacing: 25,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      for (int i = 0; i < sem7.length; i++)
+                        projectCardWidget(project: sem7[i]),
+                    ],
+                  ),
                 ),
 
+
+
+
+                SizedBox(height: 20),
+
+
+
+                //Semester 8------------------------------------------------------------------------------
+                SizedBox(height: 20),
+                Center(
+                  child: Text(
+                    "Semester (8)",
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.w900,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 20),
+
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Wrap(
+                    spacing: 25,
+                    runSpacing: 25,
+                    alignment: WrapAlignment.center,
+                    children: [
+                      for (int i = 0; i < sem8.length; i++)
+                        projectCardWidget(project: sem8[i]),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
 
               ],
             ),
